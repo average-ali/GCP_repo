@@ -1,0 +1,32 @@
+config {
+    type: "table",
+    name: "crime_proportions",
+    description: "Stores the proportions for different types of clearance status",
+    tags: ["eda"],
+    columns: {
+        primary_type: "Type of offence committed",
+        prop_arrests: "proportion of cases that culminated with an arrest",
+        prop_excep: "proportion of cases that were cleared by exception",
+        prop_nclr: "proportion of cases that are still active",
+        prop_missing: "proportion of missing data"
+    // },
+    // assertions:{
+      // uniqueKeys: [['year', 'primary_type']],
+      // nonNull: ['prop_arrests', 'prop_excep', 'prop_missing', 'prop_nclr']
+    }
+}
+
+SELECT
+  year,
+  primary_type,
+  ROUND((CAST(COUNTIF(clearance_status = 'Cleared by Arrest' ) AS FLOAT64) / COUNT(*)),3) AS prop_arrests,
+  ROUND((CAST(COUNTIF(clearance_status = 'Cleared by Exception' ) AS FLOAT64) / COUNT(*)),3) AS prop_excep,
+  ROUND((CAST(COUNTIF(clearance_status = 'Not cleared') AS FLOAT64) / COUNT(*)),3) AS prop_nclr,
+  ROUND((CAST(COUNTIF(clearance_status IS NULL) AS FLOAT64) / COUNT(*)),3) prop_missing
+FROM
+  ${ref("crime")}
+GROUP BY
+  year,
+  primary_type
+ORDER BY
+  year

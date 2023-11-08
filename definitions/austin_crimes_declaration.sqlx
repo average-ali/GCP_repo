@@ -1,0 +1,6 @@
+config { // Set the austin crimes table as the data source for this SQL workflow.
+    type: "declaration",
+    database: "bigquery-public-data",
+    schema: "austin_crime",
+    name: "crime",
+}

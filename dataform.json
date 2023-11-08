@@ -1,0 +1,8 @@
+{
+  "defaultSchema": "experimentation",
+  "assertionSchema": "dataform_assertions",
+  "warehouse": "bigquery",
+  "defaultDatabase": "nebbiu-rnd-retail",
+  "defaultLocation": "US"
+}
+    
