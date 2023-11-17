@@ -1,0 +1,14 @@
+config {
+    type: 'assertion',
+    tags:['eda']
+}
+
+SELECT
+  *
+FROM
+  ${ref("crime_proportions")}
+WHERE
+  primary_type IS NULL
+  OR prop_arrests >= 1
+  OR prop_excep >= 1
+  OR prop_nclr >= 1

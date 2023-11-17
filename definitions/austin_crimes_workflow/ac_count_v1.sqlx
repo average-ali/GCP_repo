@@ -3,7 +3,7 @@ config {
     name: "crime_count",
     description: "Stores the count of each type of crime committed in each district",
     tags: ["eda"],
-    columns: {
+        columns: {
         primary_type: "Type of offence committed",
         district: "District in which the crime took place.",
         cases_count: "Count of cases"

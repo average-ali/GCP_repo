@@ -1,0 +1,21 @@
+config {
+    type: "view",
+    schema:'movielens',
+    name: "products",
+    description: "Stores the count of each type of crime committed in each district",
+    tags: ["disc_ai"],
+        columns: {
+        id: "Id of the movie",
+        title: "Title of the movie",	
+        categories: "genre(s) the movie belogns to",	
+        uri: "IMdB URL"
+    }
+}
+SELECT
+   CAST(movies.movieId AS string) AS id,
+   SUBSTR(title, 0, 128) AS title,
+   SPLIT(genres, "|") AS categories,
+   CONCAT("https://www.imdb.com/title/tt",links.imdbId) AS uri
+ FROM `movielens.movies` movies
+ LEFT JOIN `movielens.links` links
+ ON movies.movieID = links.movieid

@@ -1,0 +1,14 @@
+-- config { // Set the austin crimes table as the data source for this SQL workflow.
+--     type: "declaration",
+--     database: "nebbiu-rnd-retail",
+--     schema: "movielens",
+--     name: "ratings"
+-- }
+
+-- config{
+--     type: "declaration",
+--     database: "nebbiu-rnd-retail",
+--     schema: "movielens",
+--     name: "movies"
+-- }
+
