@@ -1,8 +1,8 @@
 config {
-    type: "view",
+    type: "table",
     schema: 'movielens',
     name: "user_events_homepageview",
-    description: "Store user session data for home page view events",
+    description: "Store session data for home page view events.",
     tags: ["disc_ai"],
     columns: {
         visitorId: "Unique id of each visitor",
@@ -11,16 +11,13 @@ config {
         productDetails: {
             description: "Nested object to store product details",
             columns: {
-                product: {
-                    columns: {
-                        id: "id of product"
+                product:{
+                    columns: {id: "id of product"}
+                        }
                     }
                 }
-            }
-        }
-    }
+    }        
 }
 
 SELECT visitorId, 'home-page-view' AS eventType, eventTime, pd.product.id 
 FROM ${ref("user_events_addtocart")}, UNNEST(productDetails) AS pd
-

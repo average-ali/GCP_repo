@@ -1,5 +1,5 @@
 config {
-    type: "view",
+    type: "table",
     schema:'movielens',
     name: "products",
     description: "Stores the count of each type of crime committed in each district",

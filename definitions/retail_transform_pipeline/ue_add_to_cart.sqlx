@@ -1,9 +1,10 @@
 config {
-    type: "view",
+    type: "table",
     schema: 'movielens',
     name: "user_events_addtocart",
     description: "Stores the count of each type of crime committed in each district",
     tags: ["disc_ai"],
+    dependencies: ["products"],
     columns: {
         visitorId: "Unique id of each visitor",
         eventType: "Type of event",
@@ -19,6 +20,9 @@ config {
                 quantity: "Quantity of product ordered"
             }
         }
+    },
+    assertions: {
+        rowConditions: ["visitorId IS NULL"]
     }
 }
 
@@ -38,6 +42,7 @@ SELECT
   [STRUCT(STRUCT(movieId AS id) AS product,
     1 AS quantity)] AS productDetails,
 FROM
-  `movielens.ratings`, t
+  `movielens.ratings`,
+  t
 WHERE
   rating >= 4.5

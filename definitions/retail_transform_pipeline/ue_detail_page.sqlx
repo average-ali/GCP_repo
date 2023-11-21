@@ -1,5 +1,5 @@
 config {
-    type: "view",
+    type: "table",
     schema: 'movielens',
     name: "user_events_detailpageview",
     description: "Store user session data for details page view events",
