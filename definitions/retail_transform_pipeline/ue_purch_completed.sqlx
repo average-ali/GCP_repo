@@ -1,5 +1,5 @@
-// Create a view to store all generated transaction completed events
-// Scaled for the last 90 days
+-- Create a view to store all generated transaction completed events
+-- Scaled for the last 90 days
 config {
     type: "table",
     schema: 'movielens',

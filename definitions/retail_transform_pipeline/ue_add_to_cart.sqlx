@@ -22,7 +22,7 @@ config {
         }
     },
     assertions: {
-        rowConditions: ["visitorId IS NULL"]
+        rowConditions: ["visitorId IS NOT NULL"]
     }
 }
 

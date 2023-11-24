@@ -1,5 +1,5 @@
-// Create a view to store all generated search events.
-// Scaled for the last 90 days using original time column
+-- Create a view to store all generated search events.
+-- Scaled for the last 90 days using original time column
 config {
     type: "table",
     schema: 'movielens',
